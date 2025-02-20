@@ -9,15 +9,14 @@ impl<T> ArrayList<T> {
     pub fn new() -> Self{
         ArrayList {data: Vec::new()}
     }
+
     /// 从切片创建
-    pub fn from(slice: &[T]) -> Self
-    where
-        T: Clone,
-    {
+    pub fn from(slice: &[T]) -> Self where T: Clone{
         ArrayList {
             data: slice.to_vec(),
         }
     }
+
     /// 增加元素
     pub fn push(&mut self, item: T){
         self.data.push(item);
@@ -56,8 +55,7 @@ impl<T> ArrayList<T> {
         self.data.is_empty()
     }
     /// 查找元素位置
-    pub fn locate_elem(&self, elem: &T) -> Option<usize>
-    where T: PartialEq{
+    pub fn locate_elem(&self, elem: &T) -> Option<usize> where T: PartialEq{
         self.data.iter().position(|x| x == elem)
     }
     /// 清空列表
