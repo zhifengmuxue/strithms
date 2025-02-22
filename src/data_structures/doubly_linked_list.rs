@@ -75,22 +75,22 @@ impl<T> DoublyLinkedList<T> {
     /// 在链表尾部插入元素
     /// @param data: 插入的数据
     /// @where T: Clone 表示T类型必须实现Clone trait
-    pub fn push_back(&mut self, data: T) where T: Clone {
-        let new_node = Box::new(Node {
-            data,
-            prev: self.tail.take(),
-            next: None,
-        });
+    // pub fn push_back(&mut self, data: T) where T: Clone {
+    //     let new_node = Box::new(Node {
+    //         data,
+    //         prev: self.tail.take(),
+    //         next: None,
+    //     });
     
-        if let Some(ref mut tail) = self.tail {
-            tail.next = Some(new_node.clone());
-        } else {
-            self.head = Some(new_node.clone());
-        }
+    //     if let Some(ref mut tail) = self.tail {
+    //         tail.next = Some(new_node.clone());
+    //     } else {
+    //         self.head = Some(new_node.clone());
+    //     }
     
-        self.tail = Some(new_node);
-        self.length += 1;
-    }
+    //     self.tail = Some(new_node);
+    //     self.length += 1;
+    // }
     
     
 
@@ -111,18 +111,18 @@ impl<T> DoublyLinkedList<T> {
 
     /// 删除链表尾部的元素
     /// @return Option<T>
-    pub fn pop_back(&mut self) -> Option<T>{
-        self.tail.take().map(|mut node|{
-            self.tail = node.prev.take();
-            if let Some(ref mut tail) = self.tail{
-                tail.next = None;
-            }else {
-                self.head = None;
-            }
-            self.length -= 1;
-            node.data
-        })
-    }
+    // pub fn pop_back(&mut self) -> Option<T>{
+    //     self.tail.take().map(|mut node|{
+    //         self.tail = node.prev.take();
+    //         if let Some(ref mut tail) = self.tail{
+    //             tail.next = None;
+    //         }else {
+    //             self.head = None;
+    //         }
+    //         self.length -= 1;
+    //         node.data
+    //     })
+    // }
     
     /// 获取链表长度
     /// @return usize
