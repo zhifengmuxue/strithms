@@ -14,12 +14,13 @@ strithms/
 ├── src/ 
 │ ├── data_structures/ 
 │ │ ├── array_list.rs 
-│ │ ├── array_list_test.rs 
-│ │ ├── linked_list.rs 
-│ │ ├── linked_list_test.rs 
+│ │ ├── linked_list.rs  
+│ │ ├── doubly_linked_list.rs
+│ │ ├── circular_linked_list.rs 
 │ │ └── mod.rs 
 │ ├── lib.rs 
 │ └── main.rs 
+├── test/  测试文件
 └── target/
 ```
 
@@ -31,9 +32,9 @@ strithms/
 - **src/**: 源代码目录。
   - **data_structures/**: 包含各种数据结构的实现和测试。
     - **array_list.rs**: 顺序表（ArrayList）的实现。
-    - **array_list_test.rs**: 顺序表（ArrayList）的测试代码。
     - **linked_list.rs**: 单链表（LinkedList）的实现。
-    - **linked_list_test.rs**: 单链表（LinkedList）的测试代码。
+    - **circular_linked_list.rs**: 循环链表（CircularLinkedList）的实现。
+    - **doubly_linked_list.rs**: 双向链表（DoublyLinkedList）的实现。
     - **mod.rs**: 声明数据结构模块。
   - **lib.rs**: 库文件，用于声明模块。
   - **main.rs**: 项目的入口文件，包含 `main` 函数。
@@ -82,7 +83,7 @@ ArrayList 是一个顺序表数据结构，采用数组实现。以下是 ArrayL
 - print(): 输出列表内容。
 - margin(list: ArrayList<T>) -> ArrayList<T>: 合并两个顺序表。
 
-## LinkedList
+### LinkedList
 LinkedList 是一个单链表数据结构。以下是 LinkedList 的一些方法：
 
 - new(): 创建一个空的 LinkedList。
@@ -95,6 +96,31 @@ LinkedList 是一个单链表数据结构。以下是 LinkedList 的一些方法
 - merge(list: LinkedList<T>) -> LinkedList<T>: 合并两个链表。
 - reverse(): 反转链表。
 
+### DoublyLinkedList
+DoublyLinkedList 是一个双向链表数据结构。以下是 DoublyLinkedList 的一些方法：
+
+- new(): 创建一个空的 DoublyLinkedList。
+- from(slice: &[T]): 从切片创建一个 DoublyLinkedList。
+- push_front(data: T): 在链表头部插入元素。
+- push_back(data: T): 在链表尾部插入元素。
+- pop_front() -> Option<T>: 删除并返回链表头部的元素。
+- pop_back() -> Option<T>: 删除并返回链表尾部的元素。
+- len() -> usize: 获取链表长度。
+- is_empty() -> bool: 判断链表是否为空。
+- print(): 格式化输出链表内容。
+- merge(list: &DoublyLinkedList<T>) -> DoublyLinkedList<T>: 合并两个链表。
+- reverse(): 反转链表。
+
+### CircularLinkedList
+CircularLinkedList 是一个循环链表数据结构。以下是 CircularLinkedList 的一些方法：
+
+- new(): 创建一个空的 CircularLinkedList。
+- from(slice: &[T]): 从切片创建一个 CircularLinkedList。
+- push_front(data: T): 在链表头部插入元素。
+- pop_front() -> Option<T>: 删除并返回链表头部的元素。
+- len() -> usize: 获取链表长度。
+- is_empty() -> bool: 判断链表是否为空。
+- print(): 格式化输出链表内容。
 
 ## 贡献
 欢迎提交问题和拉去请求来改进此项目
