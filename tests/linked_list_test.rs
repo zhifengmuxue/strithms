@@ -1,6 +1,8 @@
+use strithms::data_structures::linked_list::LinkedList;
+
 #[cfg(test)]
 mod tests {
-    use super::super::linked_list::LinkedList;
+    use super::*;
 
     #[test]
     fn test_new() {

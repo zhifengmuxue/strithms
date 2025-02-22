@@ -5,7 +5,7 @@
 ## 项目结构
 
 ```
-structures_algorithms/ 
+strithms/ 
 ├── .gitignore 
 ├── Cargo.lock 
 ├── Cargo.toml 

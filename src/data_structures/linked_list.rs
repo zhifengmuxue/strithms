@@ -1,6 +1,22 @@
-pub struct Node<T>{
-    pub data: T,
-    pub next: Option<Box<Node<T>>>,
+/**
+ * `LinkList` 单链表
+ * 
+ * 支持的操作：
+ * 1. 创建空链表
+ * 2. 从切片创建链表
+ * 3. 在链表头部插入元素
+ * 4. 删除链表头部的元素
+ * 5. 获取链表长度
+ * 6. 判断链表是否为空
+ * 7. 格式化输出
+ * 8. 合并两个链表
+ * 9. 反转链表
+ */
+
+
+struct Node<T>{
+    data: T,
+    next: Option<Box<Node<T>>>,
 }
 
 pub struct LinkedList<T>{
@@ -10,11 +26,14 @@ pub struct LinkedList<T>{
 
 impl<T> LinkedList<T>{
     /// 创建一个空的链表
+    /// @return LinkedList<T>
     pub fn new() -> Self{
         LinkedList { head: None, length: 0}
     }
 
     /// 切片创建
+    /// @param slice: 切片
+    /// @return LinkedList<T>
     pub fn from(slice: &[T]) -> Self where T: Clone{
         let mut list = LinkedList::new();
         for item in slice.iter().rev(){
@@ -24,6 +43,7 @@ impl<T> LinkedList<T>{
     }
 
     /// 在链表头部插入元素
+    /// @param data: 插入的数据
     pub fn push_front(&mut self, data: T){
         let new_node = Box::new(Node{
             data,
@@ -34,6 +54,7 @@ impl<T> LinkedList<T>{
     }
 
     /// 删除链表头部的元素
+    /// @return Option<T>
     pub fn pop_front(&mut self) -> Option<T>{
         self.head.take().map(|node|{
             self.head = node.next;
@@ -43,16 +64,20 @@ impl<T> LinkedList<T>{
     }
 
     /// 获取链表长度
+    /// @return usize
     pub fn len(&self) -> usize{
         self.length
     }
     
     /// 判断链表是否为空
+    /// @return bool
     pub fn is_empty(&self) -> bool{
         self.length == 0
     }
 
     /// 格式化输出
+    /// @param T: 实现Debug的类型
+    /// @where T: std::fmt::Debug
     pub fn print(&self) where T: std::fmt::Debug{
         let mut current = &self.head;
         while let Some(node) = current{
@@ -63,6 +88,9 @@ impl<T> LinkedList<T>{
     }
 
     /// 合并两个链表
+    /// @param list: 链表
+    /// @return LinkedList<T>
+    /// @where T: Clone
     pub fn merge(&self, list: LinkedList<T>) -> LinkedList<T>
     where T: Clone{
         let mut new_list = LinkedList::new();

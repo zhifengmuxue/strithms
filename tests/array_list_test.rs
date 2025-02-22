@@ -1,6 +1,8 @@
+use strithms::data_structures::array_list::ArrayList;
+
 #[cfg(test)]
 mod tests {
-    use super::super::array_list::ArrayList;
+    use super::*;
 
     #[test]
     fn test_new() {
