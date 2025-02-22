@@ -25,7 +25,7 @@ pub struct Node<T> {
 pub struct DoublyLinkedList<T> {
     pub head: Option<Box<Node<T>>>,
     pub tail: Option<Box<Node<T>>>,
-    pub length: usize,
+    length: usize,
 }
 
 impl<T> DoublyLinkedList<T> {
